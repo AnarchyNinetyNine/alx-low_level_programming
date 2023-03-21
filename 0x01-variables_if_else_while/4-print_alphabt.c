@@ -5,12 +5,12 @@
  */
 int main(void)
 {
-        char c[24] = "abcdfghijklmnoprstuvwxyz";
+	char c[24] = "abcdfghijklmnoprstuvwxyz";
 
-        for (i = 0; i < 24; i++)
-        {
-                putchar(c[i]);
-        }
-        printf("\n");
-        return (0);
+	for (i = 0; i < 24; i++)
+	{
+		putchar(c[i]);
+	}
+	printf("\n");
+	return (0);
 }
