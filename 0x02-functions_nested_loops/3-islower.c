@@ -2,6 +2,7 @@
 /**
  * _islower - show 1 if c is lowercase
  * Description: 'prints _putchar stdout'
+ * @c: the caracter in ASCII code
  * Return: 1 for lower 0 else
  */
 int _islower(int c)
