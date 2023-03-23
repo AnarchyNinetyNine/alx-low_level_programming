@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * main - A program that Prints alphabet
- * Description: ' print alphabet'
- * Return: 0 (Success)
+ * print_alphabet - A program that Prints alphabet
+ * Description: 'print alphabet'
+ * Return: 0
  */
 void print_alphabet(void)
 {
