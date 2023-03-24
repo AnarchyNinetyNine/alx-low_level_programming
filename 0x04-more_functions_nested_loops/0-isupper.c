@@ -2,7 +2,6 @@
 
 /**
  * _isupper - checks for uppercase character
- * Description: check upper
  * @c: A Value from ASCII table
  * Return: 1 if c is uppercase, 0 otherwise
  */
