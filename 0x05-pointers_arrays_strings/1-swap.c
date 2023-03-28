@@ -4,13 +4,13 @@
  * swap_int - swap the values of two integers
  * @a: pointer to an integer
  * @b: pointer to an integer
- * Return: Always 0.
+ * Return: Void.
  */
 int swap_int(int *a, int *b)
 {
-	int c;
+	int temp;
 
-	c = *a;
+	temp = *a;
 	*a = *b;
-	*b = c;
+	*b = temp;
 }
