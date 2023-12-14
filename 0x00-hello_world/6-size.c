@@ -3,7 +3,7 @@
 /**
  * main - starting point
  * printf - display formatted output to standard output
- * return 0
+ * Return: 0
  */
 
 int main(void)
