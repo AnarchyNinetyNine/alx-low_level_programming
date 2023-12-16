@@ -2,12 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-/*
- * main - Entry point
- * @n: A variable that holds the generated random number
-
- * Description: Generates a random number and prints if it's positive,
- * negative, or zero.
+/**
+ * main - Starting point
+ * printf - Prints out formatted string to stdout
  * Return: Always 0 (Success)
  */
 
