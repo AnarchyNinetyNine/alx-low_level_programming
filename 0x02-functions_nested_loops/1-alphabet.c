@@ -2,11 +2,11 @@
 #include "main.h"
 
 /**
- * main - Starting point.
+ * print_alphabet - Starting point.
  * Return: 0 Always (Success)
  */
 
-void print_alphabet(void);
+
 void print_alphabet(void)
 {
 	int c;
