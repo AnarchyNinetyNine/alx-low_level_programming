@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * print_alphabet - Starting point.
+ * print_alphabet - Prints alphabet from a to z
  * Return: 0 Always (Success)
  */
 
@@ -15,5 +14,4 @@ void print_alphabet(void)
 	while (c <= 122)
 		_putchar((char) c++);
 	_putchar('\n');
-	return;
 }
