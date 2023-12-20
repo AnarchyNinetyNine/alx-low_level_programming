@@ -1,15 +1,15 @@
 #include "main.h"
 
 /**
- * _isalpha - Checks for uppercase characters
+ * _isalpha - Checks for alphabetic characters
  * @c: character type argument for _islower()
  *
- * Return: 1 if c is uppercase, 0 otherwise
+ * Return: 1 if c is uppercase/lowercase, 0 otherwise
  */
 
 int _isalpha(int c)
 {
-	if (c >= 65 && c <= 90)
+	if (c >= 65 && c <= 90 || c >= 97 && c <= 122)
 		return (1);
 	else
 		return (0);
