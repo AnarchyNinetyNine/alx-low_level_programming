@@ -2,6 +2,7 @@
 
 /**
  * _abs - computes the absolute value of an integer.
+ * @n: integer type argument for _abs().
  * Return: +(n) Always (Success).
  */
 
