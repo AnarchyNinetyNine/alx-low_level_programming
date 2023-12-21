@@ -24,7 +24,6 @@ int main(void)
 			printf("%s", buzz);
 		else
 			printf("%d", number);
-		
 		if (number != lastNumber)
 			printf(" ");
 		else
