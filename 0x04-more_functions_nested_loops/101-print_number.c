@@ -18,6 +18,11 @@ void print_number(int n)
 		_putchar('-');
 		n *= -1;
 	}
+	if (n == 0)
+	{
+		_putchar('0');
+		return;
+	}
 	nCopy = n;
 	while (n / 10 != 0)
 	{
