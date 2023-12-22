@@ -12,7 +12,7 @@ void more_numbers(void)
 	int tens;
 	int iter;
 
-	iter = 0;
+	iter = 1;
 	while (iter++ <= 10)
 	{
 		number = 0;
