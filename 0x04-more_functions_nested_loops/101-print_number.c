@@ -13,15 +13,15 @@ void print_number(int n)
 	int nCopy;
 
 	multiplier = 1;
-	if (n < 0)
-	{
-		_putchar('-');
-		n *= -1;
-	}
 	if (n == 0)
 	{
 		_putchar('0');
 		return;
+	}
+	if (n < 0)
+	{
+		_putchar('-');
+		n *= -1;
 	}
 	nCopy = n;
 	while (n / 10 != 0)
