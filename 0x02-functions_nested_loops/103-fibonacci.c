@@ -9,7 +9,6 @@
 int main(void)
 {
 	long fn_1 = 1, fn_2 = 2, fn, sum = 2;
-	int pos = 0;
 
 	while (1)
 	{
