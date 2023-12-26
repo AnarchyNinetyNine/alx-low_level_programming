@@ -15,11 +15,11 @@ int main(void)
 
 	printf("%" PRIu64 ", ", fn_1);
 	printf("%" PRIu64 ", ", fn_2);
-	while (pos++ < THRESHOLD - 2)
+	while (pos++ < (THRESHOLD - 2))
 	{
 		fn = fn_1 + fn_2;
 		printf("%" PRIu64, fn);
-		if (pos != THRESHOLD - 2)
+		if (pos != (THRESHOLD - 2))
 			printf(", ");
 		fn_1 = fn_2;
 		fn_2 = fn;
