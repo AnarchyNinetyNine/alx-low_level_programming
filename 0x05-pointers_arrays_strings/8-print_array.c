@@ -10,6 +10,7 @@
 void print_array(int *a, int n)
 {
 	int count = 0;
+
 	if (n > 0)
 	{
 		while (count < n)
