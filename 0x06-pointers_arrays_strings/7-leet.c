@@ -20,7 +20,10 @@ char *leet(char *str)
 		while (j < 10)
 		{
 			if (*str == arr[j])
+			{
 				*str = equiv[j];
+				break;
+			}
 			j++;
 		}
 		str++;
