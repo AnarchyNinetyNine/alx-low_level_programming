@@ -18,16 +18,16 @@ char *cap_string(char *str)
 		{
 			switch (*(str - 1))
 			{
-			case ',' :
-			case ';' :
-			case '.' :
-			case '!' :
-			case '?' :
-			case '"' :
-			case '(' :
-			case ')' :
-			case '{' :
-			case '}' :
+			case ',':
+			case ';':
+			case '.':
+			case '!':
+			case '?':
+			case '"':
+			case '(':
+			case ')':
+			case '{':
+			case '}':
 			case '\t':
 			case '\n':
 			case ' ':
