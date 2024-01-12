@@ -22,16 +22,16 @@ int main(int argc, char *argv[])
 	argv++;
 	while (*argv)
 	{
-		char *arg = *argv;
+		char *argnChain = *argv;
 
-		while (*arg)
+		while (*argnChain)
 		{
-			if (!isdigit(*arg))
+			if (!isdigit(*argnChain))
 			{
 				printf("Error\n");
 				return (1);
 			}
-			arg++;
+			argnChain++;
 		}
 		sum += atoi(*argv);
 		argv++;
