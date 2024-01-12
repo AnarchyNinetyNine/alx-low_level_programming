@@ -2,6 +2,10 @@
 
 /**
  * main - Starting point -> Prints the program name.
+ * @argc: The argument count.
+ * @argv: The argument vector.
+ *
+ * Return: Always 0 (Success).
  */
 int main(int argc, char *argv[])
 {
