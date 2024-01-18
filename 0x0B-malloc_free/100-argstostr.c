@@ -13,7 +13,7 @@ char *argstostr(int ac, char **av)
 {
 	char *ptr;
 
-	int i = 1;
+	int i = 0;
 	int totalCount = 0;
 
 	if (ac == 0 || av == NULL)
@@ -31,7 +31,7 @@ char *argstostr(int ac, char **av)
 	if (ptr == NULL)
 		return (NULL);
 
-	i = 1;
+	i = 0;
 
 	while (i < ac)
 	{
