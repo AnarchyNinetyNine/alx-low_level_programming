@@ -19,7 +19,7 @@ char *argstostr(int ac, char **av)
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	while (i < ac)
+	while (i < ac )
 	{
 		char *placeholder = av[i++];
 
@@ -43,6 +43,6 @@ char *argstostr(int ac, char **av)
 		*ptr++ = '\n';
 	}
 	*ptr++ = '\0';
-	ptr -= (totalCount + ac);
+	ptr -= (totalCount + ac + 1);
 	return (ptr);
 }
