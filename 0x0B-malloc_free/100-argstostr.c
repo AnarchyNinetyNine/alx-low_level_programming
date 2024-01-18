@@ -11,19 +11,19 @@
 
 char *argstostr(int ac, char **av)
 {
-	char *ptr;
+	char *ptr, *placeholder;
+	int i, j, totalCount;
 
-	int i = 0;
-	int totalCount = 0;
+	i = j = totalCount = 0;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	while (i < ac )
+	while (i < ac)
 	{
-		char *placeholder = av[i++];
-
-		while (*placeholder++)
+		placeholder = av[i++];
+		j = 0;
+		while (placeholder[j++])
 			totalCount++;
 	}
 
@@ -35,10 +35,10 @@ char *argstostr(int ac, char **av)
 
 	while (i < ac)
 	{
-		char *placeholder = av[i];
-
-		while (*placeholder)
-			*ptr++ = *placeholder++;
+		placeholder = av[i];
+		j = 0;
+		while (placeholder[j])
+			*ptr++ = placeholder[j++];
 		i++;
 		*ptr++ = '\n';
 	}
