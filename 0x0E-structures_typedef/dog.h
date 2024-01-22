@@ -1,5 +1,11 @@
 #ifndef _DOG_H_
 #define _DiOG_H_
+/**
+ * struct dog - A dog poppy structure
+ * @name: Name of the dog.
+ * @age: Age of the dog.
+ * @owner: Owner of the dog.
+ */
 
 struct dog
 {
