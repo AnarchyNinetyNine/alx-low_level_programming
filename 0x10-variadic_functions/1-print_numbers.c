@@ -13,15 +13,9 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	i = n;
 
-	if (n == 0)
-	{
-		printf("\n");
-		return;
-	}
-
 	va_start(list, n);
 
-	while (i--)
+	while (i-- && n)
 	{
 		printf("%d", va_arg(list, int));
 		if (i && separator)
