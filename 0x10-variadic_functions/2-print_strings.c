@@ -14,15 +14,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	i = n;
 
-	if (n == 0)
-	{
-		printf("\n");
-		return;
-	}
-
 	va_start(list, n);
 
-	while (i--)
+	while (i-- && n)
 	{
 		placeholder = va_arg(list, char *);
 		printf("%s", placeholder ? placeholder : "(nil)");
