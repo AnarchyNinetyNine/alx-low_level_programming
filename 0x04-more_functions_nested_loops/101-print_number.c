@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <limits.h>
 /**
  * print_number - Prints an integer.
  * @n: Input integer.
@@ -17,6 +17,11 @@ void print_number(int n)
 	{
 		_putchar('0');
 		return;
+	}
+	if (n == INT_MAX)
+	{
+		_putchar('-');
+		n = -(n + 1);
 	}
 	if (n < 0)
 	{
