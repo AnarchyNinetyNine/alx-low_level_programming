@@ -18,7 +18,7 @@ size_t print_list(const list_t *h)
 		exit(EXIT_FAILURE);
 	while (tmp)
 	{
-		printf("[%u] %s\n", tmp->len ? tmp->len : 0, tmp->str ? tmp->str : "(nil)");
+		printf("[%u] %s\n", tmp->str ? tmp->len : 0, tmp->str ? tmp->str : "(nil)");
 		tmp = tmp->next;
 		count++;
 	}
