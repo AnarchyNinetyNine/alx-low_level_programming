@@ -33,6 +33,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (new->str == NULL)
 	{
 		free(new->str);
+		free(tmp->str);
 		free(tmp);
 		free(new);
 		return (NULL);
