@@ -20,5 +20,6 @@ void free_listint2(listint_t **head)
 		explorer = nextNode;
 	}
 	free(explorer);
+	nextNode = NULL;
 	(*head) = NULL;
 }
