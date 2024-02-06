@@ -9,16 +9,15 @@
 void free_listint2(listint_t **head)
 {
 	listint_t *explorer = *head;
-	listint_t *nextNode = NULL;
+	listint_t *nextNode;
 
 	if (!head)
 		return;
-	while (explorer->next)
+	while (explorer)
 	{
 		nextNode = explorer->next;
 		free(explorer);
 		explorer = nextNode;
 	}
-	free(explorer);
 	*head = NULL;
 }
