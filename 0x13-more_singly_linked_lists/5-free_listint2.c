@@ -11,7 +11,7 @@ void free_listint2(listint_t **head)
 	listint_t *explorer = *head;
 	listint_t *nextNode = NULL;
 
-	if (!explorer)
+	if (!head || !explorer)
 		return;
 	while (explorer->next)
 	{
