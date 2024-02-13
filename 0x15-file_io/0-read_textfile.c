@@ -11,19 +11,25 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
-	char *buffer;
-	ssize_t bytes;
+	int fd;        /* File descriptor */
+	char *buffer;  /* Buffer to store data to be read */
+	ssize_t bytes; /* Number of letter it could be read/printed */
 
-	if (!filename || !letters)
+	if (!filename || !letters) /* HAndle missing requirements */
 		return (0);
+
 	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-		return (0);
 	buffer = malloc(sizeof(char) * letters);
+
+	/* HAndle failure on file opening */
+	if (fd == -1 || !buffer)
+		return (0);
+
 	bytes = read(fd, buffer, letters);
 	bytes = write(STDOUT_FILENO, buffer, bytes);
-	close(fd);
-	free(buffer);
+
+	close(fd); /* close the file descriptor */
+	free(buffer); /* free the malloc'ed buffer */
+
 	return (bytes);
 }
