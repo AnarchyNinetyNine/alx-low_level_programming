@@ -25,7 +25,8 @@ int _strlen_recursion(char *s)
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int fd;
-	ssize_t bytes = 0, len = _strlen_recursion(text_content);
+	ssize_t bytes = 0;
+	ssize_t len = text_content ? _strlen_recursion(text_content) : 0;
 
 	if (!filename)
 		return (-1);
@@ -37,6 +38,8 @@ int append_text_to_file(const char *filename, char *text_content)
 
 	if (len)
 		bytes = write(fd, text_content, len);
+	else
+		bytes = len;
 
 	close(fd);
 	return (bytes == len ? 1 : -1);
