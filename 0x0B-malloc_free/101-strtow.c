@@ -40,7 +40,7 @@ char **strtow(char *str)
 	char *placeholder = strdup(str);
 	int wc = 0;       /* wordCount */
 	int inWord = 0;   /* inside a word */
-	int i = 0;  /* i for iterating through str, j for updating placeholder */
+	int i = 0;        /* iterator */
 	char **arr;
 
 	if (!str || strcmp(str, "") == 0)
@@ -60,6 +60,8 @@ char **strtow(char *str)
 		}
 		++i;
 	}
+	if (wc == 0)
+		return (NULL);
 
 	arr = malloc(sizeof(char *) * (wc + 1));
 	if (!arr)
