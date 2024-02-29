@@ -43,7 +43,7 @@ char **strtow(char *str)
 	int i = 0;  /* i for iterating through str, j for updating placeholder */
 	char **arr;
 
-	if (!str)
+	if (!str || strcmp(str, "") == 0)
 		return (NULL);
 
 	while (placeholder[i])
