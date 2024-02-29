@@ -49,6 +49,14 @@ char **fill_array(char **arr, char *placeholder, int wc)
 	return (arr);
 }
 
+/**
+ * wc - Counts the words inside a given string.
+ *@placeholder: A string.
+ *
+ *Return: # The word count (On Success).
+ *        # 0 otherwise.
+ */
+
 int wc(char *placeholder)
 {
 	int wc = 0;       /* wordCount */
