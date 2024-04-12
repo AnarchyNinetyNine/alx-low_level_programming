@@ -19,7 +19,7 @@ hash_node_t *add_node(hash_node_t **head, char *key, const char *value)
 
 	nodeHead = *head;
 
-	while(nodeHead)
+	while (nodeHead)
 	{
 		if (strcmp(nodeHead->key, key) == 0)
 		{
