@@ -14,6 +14,7 @@ hash_node_t *add_node(hash_node_t **head, char *key, const char *value)
 {
 	hash_node_t *newNode = malloc(sizeof(hash_node_t));
 	hash_node_t *nodeHead = NULL;
+
 	if (!newNode)
 		return (NULL);
 
