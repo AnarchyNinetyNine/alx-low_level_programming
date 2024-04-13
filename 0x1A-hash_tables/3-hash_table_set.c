@@ -12,65 +12,68 @@
 
 hash_node_t *add_node(hash_node_t **head, char *key, const char *value)
 {
-	hash_node_t *currentNode, *newNode;
+	hash_node_t *newNode;
 
 	if (!head || !key || !value)
 		return (NULL);
 
-	if (!(*head))
-	{
-		*head = malloc(sizeof(hash_node_t));
-		if (!*head)
-			return (NULL);
-		
-		(*head)->key = strdup(key);
-		if (!(*head)->key)
-		{
-			free(*head);
-			return (NULL);
-		}
-		
-		(*head)->value = strdup(value);
-		if (!(*head)->value)
-		{
-			free((*head)->key);
-			free(*head);
-			return (NULL);
-		}
-		(*head)->next = NULL;
-		return (*head);
-	}
-	
-	currentNode = *head;
-	
-	while (currentNode)
-	{
-		if (strcmp(currentNode->key, key) == 0)
-		{
-			free((currentNode->value));
-			(currentNode->value) = strdup(value);
-			if (!(currentNode->value))
-				return (NULL);
-			return (currentNode);
-		}
-		
-		currentNode = currentNode->next;
-	}
-
 	newNode = malloc(sizeof(hash_node_t));
-
 	if (!newNode)
 		return (NULL);
 
 	newNode->key = strdup(key);
-	newNode->value = strdup(value);
-
-	if (!newNode->key || newNode->value)
+	if (!newNode->key)
+	{
+		free(newNode);
 		return (NULL);
+	}
+
+	newNode->value = strdup(value);
+	if (!newNode->value)
+	{
+		free(newNode->key);
+		free(newNode);
+		return (NULL);
+	}
 
 	newNode->next = *head;
 	*head = newNode;
 	return (newNode);
+}
+
+/**
+ * update_value_if_key_exists - Search for a key in a linked list of hash nodes
+ *                              and update its value.
+ * @head: Pointer to the head of a hash node linked list.
+ * @key: The key to search for.
+ * @value: The new value to assign to the key if found.
+ *
+ * Return: 1 if the key was found and value updated successfully, 0 otherwise.
+ */
+
+int update_value_if_key_exists(hash_node_t *head, const char *key,
+			       const char *value)
+{
+	hash_node_t *current = head;
+
+	while (current)
+	{
+		if (strcmp(current->key, key) == 0)
+		{
+			/* Key found, update value */
+
+			free(current->value);
+			current->value = strdup(value);
+
+			if (!current->value)
+				return (0); /* Memory allocation failed */
+			return (1);         /* Value updated successfully */
+		}
+
+		current = current->next;
+	}
+
+	return (0); /* Key not found */
 }
 
 /**
@@ -94,7 +97,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	index = key_index((unsigned char *)key, ht->size);
 	target_node = ht->array[index];
-	new_node = add_node(&target_node, (char *)key, value);
 
-	return (new_node != NULL ? 1 : 0);
+	/* Search for existing key and update value if found */
+	if (update_value_if_key_exists(target_node, key, value))
+		return (1); /* Value updated successfully */
+
+	/* Key not found, add new node */
+	new_node = add_node(&(ht->array[index]), (char *)key, value);
+
+	/* Return 1 if node added successfully, 0 otherwise */
+	return ((new_node != NULL) ? 1 : 0);
 }
