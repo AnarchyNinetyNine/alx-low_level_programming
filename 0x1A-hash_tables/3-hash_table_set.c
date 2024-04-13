@@ -15,26 +15,46 @@ hash_node_t *add_node(hash_node_t **head, char *key, const char *value)
 	if (!head || !key || !value)
 		return (NULL);
 	
-	hash_node_t *newNode;
+	hash_node_t *currentNode, *newNode;
 
 	if (!(*head))
 	{
 		*head = malloc(sizeof(hash_node_t));
 		if (!*head)
 			return (NULL);
-	}
-
-	while ((*head))
-	{
-		if (strcmp((*head)->key, key) == 0)
+		
+		(*head)->key = strdup(key);
+		if (!(*head)->key)
 		{
-			free((*head)->value);
-			(*head)->value = strdup(value);
-			if (!(*head)->value)
-				return (NULL);
-			return ((*head));
+			free(*head);
+			return (NULL);
 		}
-		(*head) = (*head)->next;
+		
+		(*head)->value = strdup(value);
+		if (!(*head)->valut)
+		{
+			free((*head)->key);
+			free(*head);
+			return (NULL);
+		}
+		(*head)->next = NULL;
+		return (*head);
+	}
+	
+	currentNode = *head;
+	
+	while (currentNode)
+	{
+		if (strcmp(currentNode->key, key) == 0)
+		{
+			free((currentNode->value);
+			(currentNode->value = strdup(value);
+			if (!(currentNode->value)
+				return (NULL);
+			return (currentNode);
+		}
+		
+		currentNode = currentNode->next;
 	}
 
 	newNode = malloc(sizeof(hash_node_t));
