@@ -12,10 +12,10 @@
 
 hash_node_t *add_node(hash_node_t **head, char *key, const char *value)
 {
+	hash_node_t *currentNode, *newNode;
+
 	if (!head || !key || !value)
 		return (NULL);
-	
-	hash_node_t *currentNode, *newNode;
 
 	if (!(*head))
 	{
@@ -31,7 +31,7 @@ hash_node_t *add_node(hash_node_t **head, char *key, const char *value)
 		}
 		
 		(*head)->value = strdup(value);
-		if (!(*head)->valut)
+		if (!(*head)->value)
 		{
 			free((*head)->key);
 			free(*head);
@@ -47,9 +47,9 @@ hash_node_t *add_node(hash_node_t **head, char *key, const char *value)
 	{
 		if (strcmp(currentNode->key, key) == 0)
 		{
-			free((currentNode->value);
-			(currentNode->value = strdup(value);
-			if (!(currentNode->value)
+			free((currentNode->value));
+			(currentNode->value) = strdup(value);
+			if (!(currentNode->value))
 				return (NULL);
 			return (currentNode);
 		}
