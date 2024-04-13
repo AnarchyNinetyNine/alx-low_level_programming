@@ -28,7 +28,7 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int index;
 	int isFirst = 1; /* Flag to track if it's the first node being printed */
 
-	if (!ht || !ht->array || ht->size == 0)
+	if (ht == NULL || !ht->array || ht->size == 0)
 	{
 		printf("{}\n");
 		return;
