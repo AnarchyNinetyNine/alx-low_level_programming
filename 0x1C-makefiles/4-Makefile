@@ -1,26 +1,44 @@
-CC = gcc                                 # Define the compiler to be used
-CFLAGS = -Wall -Werror -Wextra -pedantic # Define the compiler flags
-SRC = main.c school.c                    # Define the source files
-OBJ = $(SRC:.c=.o)                       # Define the object files
-NAME = school                            # Define the name of the executable
-RM = rm -f                               # Define the program to delete files
+# Define the compiler to be used
+CC = gcc
 
-all: $(NAME)                             # The all rule builds the executable
+# Define the compiler flags
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
-$(NAME): $(OBJ)                          # Rule to build the executable
+# Define the source files
+SRC = main.c school.c
+
+# Define the object files
+OBJ = $(SRC:.c=.o)
+
+# Define the name of the executable
+NAME = school
+
+# Define the program to delete files
+RM = rm -f
+
+# The all rule builds the executable
+all: $(NAME)
+
+# Rule to build the executable
+$(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.c                                 # Rule to build the object files
+# Rule to build the object files
+%.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-clean:                                   # Rule to delete the executable and temporary files
+# Rule to delete the executable and temporary files
+clean:
 	$(RM) $(NAME) *~ \#*\# *.swp
 
-oclean:                                  # Rule to delete only the object files
+# Rule to delete only the object files
+oclean:
 	$(RM) $(OBJ)
 
-fclean: clean oclean                     # Rule to delete everything that oclean and clean delete
+# Rule to delete everything that oclean and clean delete
+fclean: clean oclean
 
-re: fclean all                           # Rule to force recompilation of all source files
+# Rule to force recompilation of all source files
+re: fclean all
 
-.PHONY: all clean oclean fclean re       # Declare the rules that do not correspond to actual files
+.PHONY: all clean oclean fclean re
