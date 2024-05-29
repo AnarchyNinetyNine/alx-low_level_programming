@@ -1,0 +1,35 @@
+CC = gcc                                # Define the compiler to be used
+CFLAGS = -Wall -Werror -Wextra -pedantic # Define the compiler flags
+SRC = main.c school.c                   # Define the source files
+OBJ = $(SRC:.c=.o)                      # Define the object files
+NAME = school                           # Define the name of the executable
+
+all: $(NAME)                            # The all rule builds the executable
+
+# Rule to build the executable
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Rules to build each object file
+main.o: main.c m.h
+	$(CC) -c main.c
+
+school.o: school.c m.h
+	$(CC) -c school.c
+
+# Rule to delete the executable and temporary files
+clean:
+	$(RM) $(NAME)
+	$(RM) *~ \#*\# *.swp
+
+# Rule to delete only the object files
+oclean:
+	$(RM) main.o school.o
+
+# Rule to delete everything that oclean and clean delete
+fclean: clean oclean
+
+# Rule to force recompilation of all source files
+re: fclean all
+
+.PHONY: all clean oclean fclean re      # Declare the rules that do not correspond to actual files
